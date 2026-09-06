@@ -30,7 +30,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from tenor_saxs_v2 import distributions, formfactors, protocol, psf, simulation  # noqa: E402
+from tenor_saxs import distributions, formfactors, protocol, psf, simulation  # noqa: E402
 
 SD_DIST = 360.0
 WAVELENGTH = 0.1

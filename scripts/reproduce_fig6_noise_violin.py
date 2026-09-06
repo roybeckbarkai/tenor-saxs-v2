@@ -8,7 +8,7 @@ R0=3nm and relative standard deviations in the range of 0-0.55."
 This runs the full noise benchmark (BenchmarkConfig's defaults already
 match this setup: rg=3.0, phi2=1/18 (Gaussian chain), distribution='normal',
 v_values=(0.01:0.05:0.55)**2, peak_photons=10**(2.5:0.5:5)/1.65) via
-tenor_saxs_v2.benchmark, and plots the resulting violin panels.
+tenor_saxs.benchmark, and plots the resulting violin panels.
 
 Usage:
     .venv/bin/python3 scripts/reproduce_fig6_noise_violin.py [--n-replicates N] [--out-dir DIR]
@@ -23,7 +23,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from tenor_saxs_v2 import benchmark, plotting  # noqa: E402
+from tenor_saxs import benchmark, plotting  # noqa: E402
 
 
 def main(n_replicates: int, out_dir: Path) -> None:

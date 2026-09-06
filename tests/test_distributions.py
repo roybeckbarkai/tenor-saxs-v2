@@ -1,4 +1,4 @@
-"""Tests for tenor_saxs_v2.distributions.discretize_ensemble.
+"""Tests for tenor_saxs.distributions.discretize_ensemble.
 
 Bonus coverage: the affine-rescale guarantee (exact number-weighted mean=1,
 relative variance=v_rel), the v_rel=0 monodisperse special case, and the
@@ -10,7 +10,7 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from tenor_saxs_v2.distributions import discretize_ensemble
+from tenor_saxs.distributions import discretize_ensemble
 
 
 @pytest.mark.parametrize(

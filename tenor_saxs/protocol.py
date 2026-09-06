@@ -6,7 +6,7 @@ the authoritative MATLAB reference; line numbers cited below refer to that
 file).
 
 This module takes the polynomial-fit output produced by
-:mod:`tenor_saxs_v2.mg_extract` for a single 2D detector image and:
+:mod:`tenor_saxs.mg_extract` for a single 2D detector image and:
 
 1. Builds the six physically-named "observables" (``Yg100``, ``Yg210``,
    ``Ym210``, ``Jg10``, ``Jg21``, ``Jm``) from the fitted coefficients and the
@@ -197,7 +197,7 @@ def y_t_gradient(t1: float, t2: float) -> np.ndarray:
     Unlike the other six observables (which all depend on
     ``mg_extract``'s log-ratio coefficient vector ``p``), ``Y_T`` comes
     from a separate single-image fit
-    (:func:`tenor_saxs_v2.mg_extract.fit_quadratic_weighted_centered`), so
+    (:func:`tenor_saxs.mg_extract.fit_quadratic_weighted_centered`), so
     it needs its own small gradient rather than an entry in
     :func:`observable_gradients`. ``d/dt0=0`` (Y_T doesn't depend on the
     intercept); ``d/dt1 = -2*t2/t1**3``; ``d/dt2 = 1/t1**2``.
@@ -439,7 +439,7 @@ def tenor_protocol(
     inverts each against the analytical calibration curve to get a
     per-observable ``V`` estimate, and combines them into one final answer.
     """
-    from tenor_saxs_v2 import mg_extract as mg_extract_module
+    from tenor_saxs import mg_extract as mg_extract_module
 
     mg_result = mg_extract_module.mg_extract(
         pxn,

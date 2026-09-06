@@ -1,4 +1,4 @@
-"""tenor_saxs_v2: Python port and validation of the TENOR-SAXS variable-resolution
+"""tenor_saxs: Python port and validation of the TENOR-SAXS variable-resolution
 scattering method (Steinitz & Beck, "Variable-Resolution Scattering Reveals
 Ensemble Properties").
 

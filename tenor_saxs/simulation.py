@@ -38,7 +38,7 @@ Still deliberately out of scope
 --------------------------------
 - ``makeKernelOddCentered`` (Scatter2D.m:254-292) is not needed here: this
   port's ``psf0`` is expected to already be an odd-shaped, pre-normalized
-  kernel (e.g. built via :func:`tenor_saxs_v2.psf.bartlett2d`), so no
+  kernel (e.g. built via :func:`tenor_saxs.psf.bartlett2d`), so no
   re-normalization or odd-padding of ``psf0`` is performed inside
   :func:`scatter2d`, unlike Scatter2D.m:51-54.
 """
@@ -157,7 +157,7 @@ def scatter2d(
 
     ``psf0`` is convolved with the un-noised intensity map (Scatter2D.m:236)
     and is expected to already be an odd-shaped, normalized kernel (e.g.
-    from :func:`tenor_saxs_v2.psf.bartlett2d`) -- see the module docstring
+    from :func:`tenor_saxs.psf.bartlett2d`) -- see the module docstring
     for why this port skips Scatter2D.m's own PSF re-normalization/odd-
     padding step.
 

@@ -1,4 +1,4 @@
-"""MATLAB-parity tests for tenor_saxs_v2.protocol.tenor_protocol.
+"""MATLAB-parity tests for tenor_saxs.protocol.tenor_protocol.
 
 Runs the full Python pipeline against the real MATLAB reference output
 (``matlab/run_reference_export.m``'s 144-case deterministic grid,
@@ -20,7 +20,7 @@ from pathlib import Path
 import numpy as np
 import pytest
 
-from tenor_saxs_v2 import protocol
+from tenor_saxs import protocol
 
 _REFERENCE_DIR = Path(__file__).parent.parent.parent / "tenor-saxs-v2-data" / "octave-reference"
 _DETERMINISTIC_GRID_PATH = _REFERENCE_DIR / "deterministic_grid.pkl"

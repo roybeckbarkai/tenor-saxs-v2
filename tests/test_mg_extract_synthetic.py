@@ -1,4 +1,4 @@
-"""Synthetic (no-noise) recovery tests for tenor_saxs_v2.mg_extract.
+"""Synthetic (no-noise) recovery tests for tenor_saxs.mg_extract.
 
 Formalizes the manual validation already recorded in the internal validation notes'
 "Validated to date" section: exact coefficient recovery on a synthetic
@@ -11,7 +11,7 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from tenor_saxs_v2.mg_extract import fit_i_r_theta_ratios_weighted_centered, mg_extract
+from tenor_saxs.mg_extract import fit_i_r_theta_ratios_weighted_centered, mg_extract
 
 
 def _synthetic_r_theta_weight(rng, n=3000):

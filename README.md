@@ -1,4 +1,4 @@
-# TENOR-SAXS v2
+# TENOR-SAXS
 
 Python port and validation of **TENOR-SAXS** (Technique for ENsemble
 Observation by Resolution variation in SAXS), the variable-resolution
@@ -32,7 +32,7 @@ python -m pip install -e .
 
 ```python
 import numpy as np
-from tenor_saxs_v2 import psf, simulation, protocol
+from tenor_saxs import psf, simulation, protocol
 
 # Simulate a polydisperse Gaussian-chain ensemble (R0=3nm, V=0.05, normal distribution).
 result = simulation.scatter2d(
@@ -49,7 +49,7 @@ print(f"True V=0.05, recovered V={r.best_v:.4f} +/- {r.best_v_se:.4f}, Rg={r.rg:
 ## Repository layout
 
 ```
-tenor_saxs_v2/    the Python package (primary implementation)
+tenor_saxs/    the Python package (primary implementation)
 matlab/           the original MATLAB reference implementation, plus an
                   Octave export harness used to validate this Python port
                   numerically against it
@@ -57,7 +57,7 @@ scripts/          CLI entry points and paper-figure reproductions
 tests/            pytest suite
 ```
 
-### `tenor_saxs_v2/` — Python package
+### `tenor_saxs/` — Python package
 
 - `formfactors.py` — canonical monodisperse form factors (spherical shell,
   solid sphere, thin rod, Gaussian chain; exact + Guinier expansion),

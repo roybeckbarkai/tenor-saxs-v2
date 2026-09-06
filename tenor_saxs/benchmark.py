@@ -11,16 +11,16 @@ numbers cited below refer to that file). The benchmark has two stages:
 1. **Clean database generation** (:func:`generate_clean_database` /
    :func:`resolve_clean_database`): for each target scattering-weighted
    variance ``V`` in ``BenchmarkConfig.v_values``, find the discretizer
-   inputs that realize it (:func:`tenor_saxs_v2.distributions.target_effective_distribution`)
+   inputs that realize it (:func:`tenor_saxs.distributions.target_effective_distribution`)
    and simulate the corresponding noise-free 2D detector image
-   (:func:`tenor_saxs_v2.simulation.scatter2d` with ``noise=0``). This stage
+   (:func:`tenor_saxs.simulation.scatter2d` with ``noise=0``). This stage
    is cached to disk (``clean_database.h5``) and only regenerated when a
    clean-relevant configuration parameter changes, mirroring MATLAB's
    ``can_reuse_database``/``extract_clean_parameters``.
 2. **Noise benchmark** (:func:`run_noise_benchmark`): for every ok clean
    case, every photon-flux level, and every replicate, add photon-counting
    noise (:func:`add_noise`) and run the full TENOR protocol
-   (:func:`tenor_saxs_v2.protocol.tenor_protocol`) to recover an estimated
+   (:func:`tenor_saxs.protocol.tenor_protocol`) to recover an estimated
    ``V``/``Rg``, mirroring MATLAB's ``TENOR_run_noise_benchmark``.
 
 :func:`run_benchmark` is the top-level orchestrator combining both stages.
@@ -235,11 +235,11 @@ def generate_clean_database(
     (run_TENOR_benchmark.m:109-213, minus the caching wrapper -- see
     :func:`resolve_clean_database` for that). For each case:
 
-    1. :func:`tenor_saxs_v2.distributions.target_effective_distribution` finds
+    1. :func:`tenor_saxs.distributions.target_effective_distribution` finds
        the discretizer inputs (``requested_rg``, ``input_variance``) that
        realize the target scattering-weighted ``V`` at the target observed
        ``Rg``.
-    2. :func:`tenor_saxs_v2.simulation.scatter2d` simulates the corresponding
+    2. :func:`tenor_saxs.simulation.scatter2d` simulates the corresponding
        noise-free (``noise=0``) detector image.
 
     Any exception raised by either step is caught PER CASE: that case is
@@ -519,7 +519,7 @@ def run_noise_benchmark(
     CaseID. This port matches that raw-CaseID behavior.
 
     Each triple's noisy image goes through
-    :func:`tenor_saxs_v2.protocol.tenor_protocol` with the case's own
+    :func:`tenor_saxs.protocol.tenor_protocol` with the case's own
     ``Phi2`` and the config's tenor-analysis settings. Exceptions are caught
     PER (case, noise level, replicate) triple: that row is recorded with
     ``Status="failed"`` and the exception message, and the sweep continues.

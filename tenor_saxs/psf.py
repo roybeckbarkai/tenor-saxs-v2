@@ -427,7 +427,7 @@ def filter2_ungridded(
     module-level comment above this function for a summary of the physics
     (center-equivalent angular coordinates, relative solid-angle
     normalization, first-order Taylor-corrected separable filtering) and
-    :mod:`tenor_saxs_v2.psf`'s module docstring for why the underlying
+    :mod:`tenor_saxs.psf`'s module docstring for why the underlying
     kernel application (both here and in :func:`smear`) uses a direct
     spatial correlation rather than an FFT-based one (NaN locality).
 

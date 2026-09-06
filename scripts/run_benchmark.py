@@ -25,7 +25,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from tenor_saxs_v2 import benchmark, plotting  # noqa: E402
+from tenor_saxs import benchmark, plotting  # noqa: E402
 
 _DEFAULT_OUTPUT_ROOT = Path(__file__).resolve().parent.parent.parent / "tenor-saxs-v2-data" / "benchmark"
 

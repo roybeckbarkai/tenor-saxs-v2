@@ -1,4 +1,4 @@
-"""Tests for tenor_saxs_v2.protocol: analytical_theory, invert_lookup,
+"""Tests for tenor_saxs.protocol: analytical_theory, invert_lookup,
 combine_estimates.
 
 Formalizes manual validation already done during development (see
@@ -12,7 +12,7 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from tenor_saxs_v2.protocol import (
+from tenor_saxs.protocol import (
     analytical_theory,
     combine_estimates,
     invert_lookup,

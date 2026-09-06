@@ -33,7 +33,7 @@ import sys
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent))
 
-from tenor_saxs_v2 import formfactors, protocol, psf, simulation  # noqa: E402
+from tenor_saxs import formfactors, protocol, psf, simulation  # noqa: E402
 
 # Diamond B21-like instrument setup (init_TENOR_params.m defaults), matching
 # reproduce_fig2.py's baseline.

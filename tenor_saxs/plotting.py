@@ -4,7 +4,7 @@ Clean-room port of ``plot_tenor_violin_1dGT.m`` (see
 ``TENOR-SAXS/Update_Sep2_2026/plot_tenor_violin_1dGT.m`` in the sibling
 ``TENOR-SAXS`` repository for the authoritative MATLAB reference), which
 draws three per-noise-level violin panels from a
-:func:`tenor_saxs_v2.benchmark.run_benchmark` results table: the ``V``
+:func:`tenor_saxs.benchmark.run_benchmark` results table: the ``V``
 (equivalently ``p = sqrt(V)``) discrepancy and the relative ``Rg``
 discrepancy.
 
@@ -92,7 +92,7 @@ def _filter_noiseless(results_df: pd.DataFrame) -> pd.DataFrame:
     """Drop any exact zero-noise rows, defensively.
 
     Mirrors ``plot_tenor_violin_1dGT.m:25``'s ``data_tab(data_tab.Noise ~= 0,
-    :)`` filter. :func:`tenor_saxs_v2.benchmark.run_noise_benchmark` never
+    :)`` filter. :func:`tenor_saxs.benchmark.run_noise_benchmark` never
     emits a zero-``PeakPhotons`` row (every noise level in
     ``BenchmarkConfig.peak_photons`` is strictly positive), so this filter is
     a no-op in normal use -- kept only as a defensive guard against a
@@ -107,13 +107,13 @@ def _x_axis_column(results_df: pd.DataFrame) -> str:
     """``"PhotonQDensity"`` if present, else fall back to ``"PeakPhotons"``.
 
     Per an internal design review: the photon Q-DENSITY
-    (:func:`tenor_saxs_v2.benchmark.photon_q_density`, photons/nm^-2) is
+    (:func:`tenor_saxs.benchmark.photon_q_density`, photons/nm^-2) is
     the more physically meaningful noise axis -- it depends only on
     instrument geometry, not on an arbitrary pixel-binning choice, unlike
     the raw peak-photons-per-pixel count. Falls back to ``"PeakPhotons"``
     for any caller-constructed table that doesn't have the column (e.g. a
     synthetic table built directly rather than via
-    :func:`tenor_saxs_v2.benchmark.run_noise_benchmark`).
+    :func:`tenor_saxs.benchmark.run_noise_benchmark`).
     """
     return "PhotonQDensity" if "PhotonQDensity" in results_df.columns else "PeakPhotons"
 

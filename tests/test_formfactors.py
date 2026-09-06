@@ -1,4 +1,4 @@
-"""Tests for tenor_saxs_v2.formfactors.
+"""Tests for tenor_saxs.formfactors.
 
 Formalizes manual validation already done during development: GUINIER_TABLE
 matches the paper's Table 1 exactly, and each exact closed-form form factor
@@ -10,7 +10,7 @@ from __future__ import annotations
 import numpy as np
 import pytest
 
-from tenor_saxs_v2.formfactors import (
+from tenor_saxs.formfactors import (
     GUINIER_TABLE,
     KAPPA,
     exact_log_gaussian_chain,

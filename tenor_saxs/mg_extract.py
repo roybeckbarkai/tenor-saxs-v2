@@ -216,7 +216,7 @@ def fit_quadratic_weighted_centered(r: np.ndarray, y: np.ndarray, weight: np.nda
     ``a,b,c`` triple (paper Appendix B) are derived and discussed in the
     paper's text but implemented nowhere in the vendored MATLAB code (see
     the internal validation notes item 2) -- this function and its use in
-    :func:`tenor_saxs_v2.protocol.tenor_protocol` are this package's own
+    :func:`tenor_saxs.protocol.tenor_protocol` are this package's own
     from-scratch implementation of that gap, built with the same
     weighted-centering / QR / binomial-decentering numerics already
     validated for the G/M fit above (this is intentionally a strict

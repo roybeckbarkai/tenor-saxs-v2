@@ -3,7 +3,7 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "tenor-saxs-v2"
+name = "tenor-saxs"
 version = "0.2.0"
 description = "Python port and validation of the TENOR-SAXS variable-resolution scattering method"
 readme = "README.md"
@@ -23,4 +23,4 @@ dev = ["pytest>=8.0"]
 notebook = ["ipywidgets>=8.0"]
 
 [tool.setuptools.packages.find]
-include = ["tenor_saxs_v2*"]
+include = ["tenor_saxs*"]
